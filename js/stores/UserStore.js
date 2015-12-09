@@ -1,7 +1,7 @@
 var cookies = require("cookies"),
     indexOf = require("index_of"),
     emptyFunction = require("empty_function"),
-    LOCALE_KEY = require("../consts/LOCALE_KEY"),
+    HEADER_LOCALE = require("../consts/HEADER_LOCALE"),
     app = require("../"),
     Store = require("./Store");
 
@@ -23,7 +23,7 @@ var UserStore = module.exports = new Store(),
 
 app.on("init", function() {
     var locales = app.config.locales,
-        locale = cookies.get(LOCALE_KEY);
+        locale = cookies.get(HEADER_LOCALE);
 
     if (indexOf(locales, locale) === -1) {
         locale = indexOf(locales, navigatorLanguage) !== -1 ? navigatorLanguage : locales[0];
@@ -61,7 +61,7 @@ function setLocale(value) {
 
     if (last !== value) {
         UserStore.user.locale = value;
-        cookies.set(LOCALE_KEY, value);
+        cookies.set(HEADER_LOCALE, value);
         return true;
     } else {
         return false;
