@@ -1,0 +1,9 @@
+{
+  "app": {
+    "name": "VoCard",
+    "locale": {
+      "en":"en",
+      "es":"es"
+    }
+  }
+}
