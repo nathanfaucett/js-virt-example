@@ -1,1 +1,1 @@
-module.exports = "X-VoCard-Virt-User.Locale";
+module.exports = "X-Virt-Example-User.Locale";
